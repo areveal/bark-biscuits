@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from apps.marketing.views import Home
+from bark_biscuit.marketing.views import Home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
