@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ABSOLUTE_PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+ABSOLUTE_TEMPLATES_PATH = os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'templates'))
+BASE_DIR = ABSOLUTE_PROJECT_ROOT
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,7 +57,12 @@ ROOT_URLCONF = 'bark_biscuit.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+            # Always use forward slashes, even on Windows.
+            # Don't forget to use absolute paths, not relative paths.
+            ABSOLUTE_TEMPLATES_PATH,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

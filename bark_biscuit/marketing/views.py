@@ -3,8 +3,10 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import TemplateView
+from django.template import loader
+
+from bark_biscuit import settings
 
 
 class Home(TemplateView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('hello m8')
+    template_name = 'marketing/home.html'
